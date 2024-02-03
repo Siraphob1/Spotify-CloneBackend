@@ -19,5 +19,6 @@ app.get("/", (req, res) => {
 });
 
 app.use("/login", require("./routes/login.js"));
+app.use("/refresh", require("./routes/refresh.js"));
 
 app.listen(port, () => console.log(`Server start at http://localhost:${port}`));
