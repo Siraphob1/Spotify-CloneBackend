@@ -19,8 +19,10 @@ router.post("/", (req, res) => {
   spotifyAPI
     .refreshAccessToken()
     .then((data) => {
-      const { accessToken, expiresIn } = data.body;
-      res.json({ accessToken, expiresIn });
+      res.json({
+        accessToken: data.body.access_token,
+        expiresIn: data.body.expires_in,
+      });
     })
     .catch((error) => {
       console.log(error);
